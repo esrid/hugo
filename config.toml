@@ -1,0 +1,11 @@
+[markup]
+  [markup.highlight]
+    noClasses = false      # Set this to true if you prefer inline styles instead of CSS classes
+    style = "monokai"      # Specify the style for code highlighting (e.g., monokai, dracula, etc.)
+    lineNos = true         # Enable line numbers
+    lineNumbersInTable = true  # Render line numbers in a table for better alignment
+    tabWidth = 4           # Set the tab width
+
+  [markup.goldmark.renderer]
+    unsafe = true          # Allow raw HTML (needed for some advanced syntax highlighting features)
+

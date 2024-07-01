@@ -1,7 +1,12 @@
 +++
 title = 'Go variables & constant'
 date = 2024-07-01T08:58:17-04:00
-draft = false
+draft = true
+description = "Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l'une peut être préférable à une autre."
+type = "post"
+tags = ["Go", "Programming", "Tutorial"]
+categories = ["Programming", "Go"]
+series = ["Go Basics"]
 +++
 
 Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l'une peut être préférable à une autre.
