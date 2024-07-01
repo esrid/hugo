@@ -58,13 +58,13 @@ url = "/"
 same = "Posts"
 url = "/posts"
 
-[[params.menu]]
-name = "tutorials"
-url = "/tutorials"
-
-[[params.menu]]
-name = "Autres"
-url = "/autre"
+# [[params.menu]]
+# name = "tutorials"
+# url = "/tutorials"
+#
+# [[params.menu]]
+# name = "Autres"
+# url = "/autre"
 
 # Syntax highligth on code blocks
 [markup]

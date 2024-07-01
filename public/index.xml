@@ -9,25 +9,11 @@
     <lastBuildDate>Mon, 01 Jul 2024 08:58:17 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Comment ?</title>
-      <link>http://localhost:1313/tutorials/howto/</link>
-      <pubDate>Mon, 01 Jul 2024 08:58:17 -0400</pubDate>
-      <guid>http://localhost:1313/tutorials/howto/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Go variables &amp; constant</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <link>http://localhost:1313/posts/variables/</link>
       <pubDate>Mon, 01 Jul 2024 08:58:17 -0400</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l&amp;rsquo;une peut être préférable à une autre.&#xA;Var := Const </description>
-    </item>
-    <item>
-      <title>un anime ou quoi</title>
-      <link>http://localhost:1313/autre/helllo/</link>
-      <pubDate>Mon, 01 Jul 2024 08:58:17 -0400</pubDate>
-      <guid>http://localhost:1313/autre/helllo/</guid>
-      <description></description>
+      <guid>http://localhost:1313/posts/variables/</guid>
+      <description>Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l&amp;rsquo;une peut être préférable à une autre.&#xA;Var var dix int = 10 Le mot clé var suivit de l&amp;rsquo;identifiant dix, le type et l&amp;rsquo;assignement&#xA;var dix = 10 Vous pouvez omettre le type si le type par défaut correspond à celui que vous souhaitez.</description>
     </item>
   </channel>
 </rss>
