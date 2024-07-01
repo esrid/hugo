@@ -24,14 +24,14 @@ var dix,onze int
 Vous pouvez aussi declarer plusieurs variable avec un type en commun  
 
 ```go
-var dix, phrase = 10, "une chaine de charactere"
+var dix, phrase = 10, "une chaine de caractères"
 ```
 ou sans préciser le type, le type sera inféré automatiquement.
 
 ```go
 var (
 	dix int
-	mot string = "une chaîne de character"
+	mot string = "une chaîne de caractères"
 	pi         = 3.14
    )
 ```
@@ -43,7 +43,7 @@ Le type est directement inféré donc pas de typing.
 
 
 ```go
- dix, phrase := 10, "une chaine de charactere"
+ dix, phrase := 10, "une chaine de caractères"
 ```
 Vous pouvez comme faire une multi declaration de variable, mais il n'est pas possible d'utiliser cette méthode en dehors d'une fonction.
 
@@ -59,7 +59,7 @@ func main() {
 ```go
 const (
 	dix int    = 11
-	mot string = "une chaîne de character"
+	mot string = "une chaîne de caractères"
 	pi         = 3.14
 )
 
@@ -68,7 +68,7 @@ const x, y int = 1, 2
 `const` est un peu limité, il peut seulement contenir des : 
 - nombre littéraux `const x = 1010_1001`
 - true or false `const b = true`
-- chaîne de charactere `const s = "chaine de charactere"`
+- chaîne de caractères `const s = "chaine de caractères"`
 - rune `const r = 'A'`
 - built-in fonctions complex, real, imag, len, and cap
 

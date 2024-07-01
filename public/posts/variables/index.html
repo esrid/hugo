@@ -54,7 +54,7 @@
         
         <p class="small ">
             <a href="/">
-                /home
+                /Acceuil
             </a>
         </p>
         
@@ -130,18 +130,18 @@
 </span></span></code></pre></div><p>Vous pouvez omettre le type si le type par défaut correspond à celui que vous souhaitez. Dans cet exemple, le type par défaut est int.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix,onze <span style="font-weight:bold;text-decoration:underline">int</span> 
 </span></span></code></pre></div><p>Vous pouvez aussi declarer plusieurs variable avec un type en commun</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix, phrase = 10, <span style="color:#666;font-style:italic">&#34;une chaine de charactere&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix, phrase = 10, <span style="color:#666;font-style:italic">&#34;une chaine de caractères&#34;</span>
 </span></span></code></pre></div><p>ou sans préciser le type, le type sera inféré automatiquement.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> (
 </span></span><span style="display:flex;"><span>	dix <span style="font-weight:bold;text-decoration:underline">int</span>
-</span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de character&#34;</span>
+</span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de caractères&#34;</span>
 </span></span><span style="display:flex;"><span>	pi         = 3.14
 </span></span><span style="display:flex;"><span>   )
 </span></span></code></pre></div><p>Vous pouvez déclarer plusieurs variables en entourant les identifiant entre parenthèses. (recommander quand vous voulez déclarer plus de 2 variables)</p>
 <h2 id="heading">:=</h2>
 <p><code>:=</code> est la version courte de Var, mais avec quelques limitations.
 Le type est directement inféré donc pas de typing.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span> dix, phrase := 10, <span style="color:#666;font-style:italic">&#34;une chaine de charactere&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span> dix, phrase := 10, <span style="color:#666;font-style:italic">&#34;une chaine de caractères&#34;</span>
 </span></span></code></pre></div><p>Vous pouvez comme faire une multi declaration de variable, mais il n&rsquo;est pas possible d&rsquo;utiliser cette méthode en dehors d&rsquo;une fonction.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
 </span></span><span style="display:flex;"><span>	dix := 10
@@ -150,7 +150,7 @@ Le type est directement inféré donc pas de typing.</p>
 <p><code>const</code> vous permet de créer des variables immuables contrairement a var. c&rsquo;est-à-dire des variables qui ne peuvent être modifié</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> (
 </span></span><span style="display:flex;"><span>	dix <span style="font-weight:bold;text-decoration:underline">int</span>    = 11
-</span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de character&#34;</span>
+</span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de caractères&#34;</span>
 </span></span><span style="display:flex;"><span>	pi         = 3.14
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
@@ -159,7 +159,7 @@ Le type est directement inféré donc pas de typing.</p>
 <ul>
 <li>nombre littéraux <code>const x = 1010_1001</code></li>
 <li>true or false <code>const b = true</code></li>
-<li>chaîne de charactere <code>const s = &quot;chaine de charactere&quot;</code></li>
+<li>chaîne de caractères <code>const s = &quot;chaine de caractères&quot;</code></li>
 <li>rune <code>const r = 'A'</code></li>
 <li>built-in fonctions complex, real, imag, len, and cap</li>
 </ul>
