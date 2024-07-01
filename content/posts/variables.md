@@ -1,7 +1,7 @@
 +++
 title = 'Go variables & constant'
 date = 2024-07-01T08:58:17-04:00
-draft = true
+draft = false
 +++
 
 Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l'une peut être préférable à une autre.
@@ -73,7 +73,7 @@ const x, y int = 1, 2
 - built-in fonctions complex, real, imag, len, and cap
 
 ### Conclusion : 
-Lors de l'initialisation d'une variable à sa valeur zéro, utilisez `var i int`.
+Lors de l'initialisation d'une variable à sa valeur zéro, exemple : `var i int`.
 Cela indique clairement que la valeur zéro est voulue.
 
 Vous devez rarement déclarer des variables en dehors des fonctions,Lorsqu'une variable se trouve en dehors d'une fonction, il peut être difficile de suivre les modifications apportées à la variable, ce qui empêche de comprendre comment les données circulent dans le programme
