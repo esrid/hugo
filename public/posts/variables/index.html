@@ -125,7 +125,7 @@
     <p>Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l&rsquo;une peut être préférable à une autre.</p>
 <h2 id="var">Var</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix <span style="font-weight:bold;text-decoration:underline">int</span> = 10
-</span></span></code></pre></div><p>Le mot clé var suivit de l&rsquo;identifiant <code>dix</code>, le type et l&rsquo;assignement</p>
+</span></span></code></pre></div><p>Le mot clé var suivit de l&rsquo;identifiant <code>dix</code>, le type et l&rsquo;assignement.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix = 10
 </span></span></code></pre></div><p>Vous pouvez omettre le type si le type par défaut correspond à celui que vous souhaitez. Dans cet exemple, le type par défaut est int.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> dix,onze <span style="font-weight:bold;text-decoration:underline">int</span> 
@@ -137,18 +137,17 @@
 </span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de character&#34;</span>
 </span></span><span style="display:flex;"><span>	pi         = 3.14
 </span></span><span style="display:flex;"><span>   )
-</span></span></code></pre></div><p>Vous pouvez declarez des plusieurs variables en entourant les identifiant entre parenthese, (recommander quand vous voulez déclarez plus de 2 variables)</p>
+</span></span></code></pre></div><p>Vous pouvez déclarer plusieurs variables en entourant les identifiant entre parenthèses. (recommander quand vous voulez déclarer plus de 2 variables)</p>
 <h2 id="heading">:=</h2>
-<p><code>:=</code> est la version courte de var mais avec quelques limitations.
-le type est directement inférer donc pas de typing.</p>
-<p>vous pouvez comme faire une multi declaration de variable</p>
+<p><code>:=</code> est la version courte de Var, mais avec quelques limitations.
+Le type est directement inféré donc pas de typing.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span> dix, phrase := 10, <span style="color:#666;font-style:italic">&#34;une chaine de charactere&#34;</span>
-</span></span></code></pre></div><p>mais il n&rsquo;est pas possible d&rsquo;utiliser cet méthodes en dehors d&rsquo;une function.</p>
+</span></span></code></pre></div><p>Vous pouvez comme faire une multi declaration de variable, mais il n&rsquo;est pas possible d&rsquo;utiliser cette méthode en dehors d&rsquo;une fonction.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
 </span></span><span style="display:flex;"><span>	dix := 10
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="const">Const</h2>
-<p><code>const</code> vous permez de créer des variables immutables contrairement a var. c&rsquo;est à dire des variables qui ne peuvent être modifié</p>
+<p><code>const</code> vous permet de créer des variables immuables contrairement a var. c&rsquo;est-à-dire des variables qui ne peuvent être modifié</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> (
 </span></span><span style="display:flex;"><span>	dix <span style="font-weight:bold;text-decoration:underline">int</span>    = 11
 </span></span><span style="display:flex;"><span>	mot <span style="font-weight:bold;text-decoration:underline">string</span> = <span style="color:#666;font-style:italic">&#34;une chaîne de character&#34;</span>
@@ -156,20 +155,20 @@ le type est directement inférer donc pas de typing.</p>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> x, y <span style="font-weight:bold;text-decoration:underline">int</span> = 1, 2
-</span></span></code></pre></div><p><code>const</code> est un peu limité il peut seulement containir des :</p>
+</span></span></code></pre></div><p><code>const</code> est un peu limité, il peut seulement contenir des :</p>
 <ul>
-<li>nombre literaux <code>const x = 1010_1001</code></li>
+<li>nombre littéraux <code>const x = 1010_1001</code></li>
 <li>true or false <code>const b = true</code></li>
-<li>chaine de charactere <code>const s = &quot;chaine de charactere&quot;</code></li>
+<li>chaîne de charactere <code>const s = &quot;chaine de charactere&quot;</code></li>
 <li>rune <code>const r = 'A'</code></li>
-<li>built-in functions complex, real, imag, len, and cap</li>
+<li>built-in fonctions complex, real, imag, len, and cap</li>
 </ul>
 <h3 id="conclusion-">Conclusion :</h3>
 <p>Lors de l&rsquo;initialisation d&rsquo;une variable à sa valeur zéro, utilisez <code>var i int</code>.
 Cela indique clairement que la valeur zéro est voulue.</p>
 <p>Vous devez rarement déclarer des variables en dehors des fonctions,Lorsqu&rsquo;une variable se trouve en dehors d&rsquo;une fonction, il peut être difficile de suivre les modifications apportées à la variable, ce qui empêche de comprendre comment les données circulent dans le programme</p>
-<p>A l&rsquo;intérieur d&rsquo;une function l&rsquo;utilisation de <code>:=</code> est plus communement utiliser.</p>
-<p>Utilisez <code>const</code> pour des variables immutables.</p>
+<p>À l&rsquo;intérieur d&rsquo;une fonction l&rsquo;utilisation de <code>:=</code> est plus communément utiliser.</p>
+<p>Utilisez <code>const</code> pour des variables immuables.</p>
 
     
   </div>

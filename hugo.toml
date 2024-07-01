@@ -55,7 +55,7 @@ name = "home"
 url = "/"
 
 [[params.menu]]
-same = "Posts"
+same = "posts"
 url = "/posts"
 
 # [[params.menu]]
