@@ -187,12 +187,12 @@
 <p><code>:=</code> est la version courte de Var, mais avec quelques limitations.
 Le type est directement inféré donc pas de typing.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span> dix, phrase := 10, <span style="color:#666;font-style:italic">&#34;une chaine de caractères&#34;</span>
-</span></span></code></pre></div><p>Comme <code>var</code> vous ne pouvez faire une multiple déclaration de variables.</p>
+</span></span></code></pre></div><p>Comme le mot-clé <code>var</code>, vous pouvez faire une multiple déclaration de variables.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
 </span></span><span style="display:flex;"><span>	dix := 10 <span style="color:#888;font-style:italic">// Valide ✅
 </span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
 </span></span><span style="display:flex;"><span>dix := 10 <span style="color:#888;font-style:italic">// Non valide ❌
-</span></span></span></code></pre></div><p>Cet méthode de déclaration ne fonctionne pas en dehors d&rsquo;une fonction.</p>
+</span></span></span></code></pre></div><p>Cette méthode de déclaration ne fonctionne pas en dehors d&rsquo;une fonction.</p>
 <h2 id="const">Const</h2>
 <p><code>const</code> vous permet de créer des variables immuables contrairement a var. c&rsquo;est-à-dire des variables qui ne peuvent être modifié</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">const</span> (

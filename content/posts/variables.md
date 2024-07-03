@@ -53,7 +53,7 @@ Le type est directement inféré donc pas de typing.
 ```go
  dix, phrase := 10, "une chaine de caractères"
 ```
-Comme `var` vous ne pouvez faire une multiple déclaration de variables. 
+Comme le mot-clé `var`, vous pouvez faire une multiple déclaration de variables.
 
 ```go
 func main() {
@@ -61,7 +61,7 @@ func main() {
 }
 dix := 10 // Non valide ❌
 ```
-Cet méthode de déclaration ne fonctionne pas en dehors d'une fonction.
+Cette méthode de déclaration ne fonctionne pas en dehors d'une fonction.
 
 ## Const
 
