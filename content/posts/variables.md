@@ -53,13 +53,16 @@ Le type est directement inféré donc pas de typing.
 ```go
  dix, phrase := 10, "une chaine de caractères"
 ```
-Vous pouvez comme faire une multi declaration de variable, mais il n'est pas possible d'utiliser cette méthode en dehors d'une fonction.
+Comme `var` vous ne pouvez faire une multiple déclaration de variables. 
 
 ```go
 func main() {
-	dix := 10
+	dix := 10 // Valide ✅
 }
+dix := 10 // Non valide ❌
 ```
+Cet méthode de déclaration ne fonctionne pas en dehors d'une fonction.
+
 ## Const
 
 `const` vous permet de créer des variables immuables contrairement a var. c'est-à-dire des variables qui ne peuvent être modifié 
