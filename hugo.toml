@@ -22,7 +22,7 @@ description = "apprendre golang de manière idiomatique en moins de 5 minutes !"
 
 # Appearance settings
 theme = 'auto'
-colorPalette = 'default'
+colorPalette = 'gotheme'
 hideHeader = false
 
 # Intro on main page, content is markdown
