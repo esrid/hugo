@@ -5,7 +5,10 @@ draft = true
 description = "Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l'une peut être préférable à une autre."
 type = "post"
 tags = ["Go", "Programming", "Tutorial"]
+showTags = true
+readTime = true
 categories = ["Programming", "Go"]
+toc = true
 series = ["Go Basics"]
 +++
 
@@ -77,7 +80,7 @@ const x, y int = 1, 2
 - rune `const r = 'A'`
 - built-in fonctions complex, real, imag, len, and cap
 
-### Conclusion : 
+## Conclusion : 
 Lors de l'initialisation d'une variable à sa valeur zéro, exemple : `var i int`.
 Cela indique clairement que la valeur zéro est voulue.
 
