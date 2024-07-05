@@ -1,4 +1,4 @@
-baseURL = 'https://apprendregofacilement.fr/'
+baseURL = '://apprendregofacilement.fr'
 languageCode = 'fr-fr'
 title = 'ApprentiGO'
 theme = 'typo'
