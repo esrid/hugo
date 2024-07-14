@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ApprentiGO</title>
+    <title>Home on ApprentiGO</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on ApprentiGO</description>
+    <description>Recent content in Home on ApprentiGO</description>
     <generator>Hugo</generator>
     <language>fr-fr</language>
     <managingEditor>your-email@example.com (Alexandre desir)</managingEditor>

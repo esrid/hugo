@@ -2,7 +2,7 @@
 <html lang="fr-fr"
   dir="ltr">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width"><meta name="description" content="" />
 
@@ -24,11 +24,6 @@
 
 
 <link rel="stylesheet" href="/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">
-
-
-
-
-  
 
 
 
@@ -117,19 +112,19 @@
     
     
 
-    <p class="line-date">1 Jul 2024 </p>
+    <p class="line-date">4 Jul 2024 </p>
 
     <div>
         <p class="line-title">
-            <a href="/posts/variables/">
-                Go variables &amp; constant
+            <a href="/posts/slice/">
+                Slice &amp; array quel sont les différences ? 
             </a>
         </p>
 
         
-        <p class="line-summary"> Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l&rsquo;une peut être préférable à une autre.
-Var var dix int = 10 Le mot clé var suivit de l&rsquo;identifiant dix, le type et l&rsquo;assignement.
-var dix = 10 Vous pouvez omettre le type si le type par défaut correspond à celui que vous souhaitez. </p>
+        <p class="line-summary"> Array Pour déclarer un array, vous devez spécifié la taille et le type :
+var a [5]int comme nous l&rsquo;avons vu dans l&rsquo;article précédent, cette déclaration initialise la varlaur du type par default a sont 0, ce qui signifie dans cet exemple la variable a contient un array avec 5 0
+var a = [...]int{1,2,3,4,5} Vous pouvez également utiliser cette notation, qui déterminera automatiquement le nombre d&rsquo;éléments dans le tableau. </p>
         
     </div>
 </div>
