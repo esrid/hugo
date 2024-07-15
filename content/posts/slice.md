@@ -1,8 +1,8 @@
 +++
-title = 'Slice & tableau quel sont les différences ? '
+title = 'Tranche & tableau quel sont les différences ? '
 date = 2024-07-04T15:45:51-04:00
-draft = true
-description = "Quels sont les differences entre une tranche et un tableau en go ?"
+draft = false
+description = "Quels sont les differences entre une tranche (slice) et un tableau (array) en go ?"
 type = "post"
 tags = ["Go", "Programming", "Tutorial"]
 showTags = true
@@ -80,37 +80,40 @@ a = append(a,x...)
 la capacité d'un tranche et le nombre d'element qu'un tranche peut recevoir avant que le runtime double sa capacité.
 ```go
 x := []int{0,191,919,88}
+fmt.Println(len(x), cap(x))
 ```
-dans cette exemple la taille du tableaux et 4 et ça capacité est aussi de 4 par default mais si nous ajoutons une valeur la capacité sera doublé
+Dans cet exemple, la taille du tableau est 4 et sa capacité est aussi de 4 par défaut, mais si nous ajoutons une valeur, la capacité sera doublée.
+
 ```go
 x := []int{0,191,919,88}
 fmt.Println(len(x), cap(x))
 x = append(x, 11)
 fmt.Println(len(x), cap(x))
 ```
-### make
+### Make
 ```go
 a := make([]int, 6)
 ```
-utilser le mot clé `make` pour crée une tranche avec une taille par défault et une capacité par default
+Utilser le mot clé `make` pour crée une tranche avec une taille par défault et une capacité par default
 
 ```go
 a := make([]int, 6, 19)
 ```
-capacité de 19 et taille de 6
+make(type, taille, capacité)
+
 ### Créer un tranche a partir d'un tranche
-vous pouvez crée un tranche a partir d'un tranche 
+Vous pouvez crée un tranche a partir d'un tranche 
 ```go
 x := []int{10,191,919,88}
 y := x[1:]
 ```
-mais attention ce n'est pas une copie, en fait il partage la même mémoire
+Mais attention, ce n'est pas une copie, en fait, ils partagent la même mémoire.
 ```go
 x := []int{10,191,919,88}
 y := x[1:]
 y[1] = 26
 ```
-ce changement sera répercuté aussi bien sur la variable y que x, ceci fonctionne aussi bien avec un tranche qu'un tableau.
+Ce changement sera répercuté aussi bien sur la variable y que x, ceci fonctionne aussi bien avec un tranche qu'un tableau.
 
 ### copy 
 Pour avoir une copie complètement indépendants d'une tranche ou d'un tableau, le mot clé `copy` est ce qu'il vous faut.
@@ -119,24 +122,17 @@ x := []int{10,191,919,88}
 y := make([]int, 4)
 copy(y,x)
 ```
-dans la 1er parametre est le destinataire, la second est la source. 
-la capacité est pas important mais la taille compte. 
+Le premier paramètre est le destinataire, le second est la source. La capacité n'est pas importante, mais la taille compte.
 
 ```go
 x := []int{10,191,919,88}
 y := make([]int, 2)
 copy(y,x)
 ```
-dans cet exemple `copy` copiras que les deux 1er index de x dans y.
+Dans cet exemple, copy copiera seulement les deux premiers éléments de x dans y.
 
 ## Conclusion 
 
-Quel declaration choisir ? 
+Quelle déclaration choisir ?
 
-La priorité est est de limité le nombre de fois que vas grossir le tranche. 
-S'il est possible que la tranche n'ait pas besoin de croître du tout (parce que votre fonction ne renvoie rien), utilisez une déclaration var.
-utiliser une déclaration var sans valeur assignée pour créer une tranche nil.
-aucune valeur assignée pour créer une tranche nulle
-
-si vous avez des values par défault utiliser un tranche litéral 
-si vous savez quel taille et quel capcité utilisé make
+La priorité est de limiter le nombre de fois que la tranche va grossir. S'il est possible que la tranche n'ait pas besoin de croître du tout (parce que votre fonction ne renvoie rien), utilisez une déclaration var sans valeur assignée pour créer une tranche nil. Si vous avez des valeurs par défaut, utilisez une tranche littérale. Si vous connaissez la taille et la capacité, utilisez make.
