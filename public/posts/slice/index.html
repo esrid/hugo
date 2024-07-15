@@ -4,11 +4,11 @@
 
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width"><meta name="description" content="Quels sont les differences entre une slice et un array en go ?" />
+<meta name="viewport" content="width=device-width"><meta name="description" content="Quels sont les differences entre une tranche (slice) et un tableau (array) en go ?" />
 
 <title>
     
-    Slice &amp; array quel sont les différences ?  | ApprentiGO
+    Tranche &amp; tableau quel sont les différences ?  | ApprentiGO
     
 </title>
 
@@ -86,7 +86,7 @@
     <a href="/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="/posts/slice/">Slice &amp; array quel sont les différences ? </a>
+    <a class="breadcrumbs-current" href="/posts/slice/">Tranche &amp; tableau quel sont les différences ? </a>
 </div>
 
 
@@ -96,7 +96,7 @@
 
     
 
-    <h1 class="single-title">Slice &amp; array quel sont les différences ? </h1>
+    <h1 class="single-title">Tranche &amp; tableau quel sont les différences ? </h1>
     
 
     
@@ -110,7 +110,7 @@
 
       
       &nbsp; · &nbsp;
-      1 min read
+      4 min read
       
     </p>
 
@@ -150,7 +150,18 @@
     <p><strong>Table of contents</strong></p>
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#array">Array</a></li>
     <li><a href="#sparse">Sparse</a></li>
+    <li><a href="#slice">Slice</a>
+      <ul>
+        <li><a href="#append">Append</a></li>
+        <li><a href="#capacité">Capacité</a></li>
+        <li><a href="#make">Make</a></li>
+        <li><a href="#créer-un-tranche-a-partir-dun-tranche">Créer un tranche a partir d&rsquo;un tranche</a></li>
+        <li><a href="#copy">copy</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </aside>
@@ -159,13 +170,78 @@
   
 
   <div class="single-content">
-    <h1 id="array">Array</h1>
-<p>Pour déclarer un array, vous devez spécifié la taille et le type :</p>
+    <h2 id="array">Array</h2>
+<p>Pour déclarer un tableau, vous devez spécifié la taille et le type :</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a [5]<span style="font-weight:bold;text-decoration:underline">int</span>
-</span></span></code></pre></div><p>comme nous l&rsquo;avons vu dans l&rsquo;article précédent, cette déclaration initialise la varlaur du type par default a sont 0, ce qui signifie dans cet exemple la variable <code>a</code> contient un array avec 5 <code>0</code></p>
+</span></span></code></pre></div><p>Comme nous l’avons vu dans l’article précédent, cette déclaration initialise les valeurs du tableau au type par défaut, qui est 0 pour les entiers (int). Cela signifie que dans cet exemple, la variable <code>a</code> contient un tableau avec 5 chiffres 0, <code>[0,0,0,0,0]</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a = [...]<span style="font-weight:bold;text-decoration:underline">int</span>{1,2,3,4,5}
-</span></span></code></pre></div><p>Vous pouvez également utiliser cette notation, qui déterminera automatiquement le nombre d&rsquo;éléments dans le tableau.</p>
+</span></span></code></pre></div><p>Vous pouvez également utiliser cette notation, qui déterminera automatiquement le nombre d’éléments dans le tableau.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> multi [5][3]<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span></code></pre></div><p>Vous pouvez déclarer des tableaux à dimensions multiples.</p>
 <h2 id="sparse">Sparse</h2>
+<p>Si vous avez un tableau où la plupart des éléments sont assignés à leur valeur zéro par défaut, vous pouvez spécifier quels index contiennent une valeur différente. Cela fonctionne aussi avec les tranches.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a = [12]<span style="font-weight:bold;text-decoration:underline">int</span>{5:8,9:5}
+</span></span></code></pre></div><h2 id="slice">Slice</h2>
+<p>Les tranches ressemblent à des tableaux, mais une des différences est que vous n’avez pas à définir la taille lors de la déclaration.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a [5]<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// c&#39;est un tableaux
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a []<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// c&#39;est une tranche
+</span></span></span></code></pre></div><p>Comme avec les tableaux, vous pouvez déclarer des tableaux à dimensions multiples.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> multi [5][3]<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span></code></pre></div><p>Contrairement aux tableaux, déclarer une tranche sans lui donner de valeur la rendra nil.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a []<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">println</span>(a == <span style="font-weight:bold;text-decoration:underline">nil</span>)
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// true
+</span></span></span></code></pre></div><p>D’ailleurs, vous ne pouvez pas directement comparer une tranche à une autre tranche, mais seulement à nil.
+Si vous souhaitez les comparer, c&rsquo;est possible avec la fonction <code>DeepEqual</code> du module <code>reflect</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	a := []<span style="font-weight:bold;text-decoration:underline">int</span>{1}
+</span></span><span style="display:flex;"><span>	b := []<span style="font-weight:bold;text-decoration:underline">int</span>{1}
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(reflect.<span style="color:#666;font-weight:bold;font-style:italic">DeepEqual</span>(a, b))
+</span></span></code></pre></div><h3 id="append">Append</h3>
+<p>Le mot clé <code>append</code> sert à ajouter un élément dans une tranche. Comme argument, il prend une tranche de n&rsquo;importe quel type et une ou plusieurs valeurs. Chaque fois que vous passez un paramètre à une fonction, Go fait une copie de la valeur qui est passée. Le passage d&rsquo;une tranche à la fonction append transmet en fait une copie de la tranche à la fonction. La fonction ajoute les valeurs à la copie de la tranche, et renvoie la copie. c&rsquo;est pourquoi réassigné est nécessaire.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> a []<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{0,191,919,88}
+</span></span><span style="display:flex;"><span>a = <span style="font-weight:bold;font-style:italic">append</span>(a, 5)
+</span></span><span style="display:flex;"><span>a = <span style="font-weight:bold;font-style:italic">append</span>(a, 6,7,8)
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// merge deux tableaux
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>a = <span style="font-weight:bold;font-style:italic">append</span>(a,x...)
+</span></span></code></pre></div><h3 id="capacité">Capacité</h3>
+<p>la capacité d&rsquo;un tranche et le nombre d&rsquo;element qu&rsquo;un tranche peut recevoir avant que le runtime double sa capacité.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{0,191,919,88}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="font-weight:bold;font-style:italic">len</span>(x), <span style="font-weight:bold;font-style:italic">cap</span>(x))
+</span></span></code></pre></div><p>Dans cet exemple, la taille du tableau est 4 et sa capacité est aussi de 4 par défaut, mais si nous ajoutons une valeur, la capacité sera doublée.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{0,191,919,88}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="font-weight:bold;font-style:italic">len</span>(x), <span style="font-weight:bold;font-style:italic">cap</span>(x))
+</span></span><span style="display:flex;"><span>x = <span style="font-weight:bold;font-style:italic">append</span>(x, 11)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="font-weight:bold;font-style:italic">len</span>(x), <span style="font-weight:bold;font-style:italic">cap</span>(x))
+</span></span></code></pre></div><h3 id="make">Make</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>a := <span style="font-weight:bold;font-style:italic">make</span>([]<span style="font-weight:bold;text-decoration:underline">int</span>, 6)
+</span></span></code></pre></div><p>Utilser le mot clé <code>make</code> pour crée une tranche avec une taille par défault et une capacité par default</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>a := <span style="font-weight:bold;font-style:italic">make</span>([]<span style="font-weight:bold;text-decoration:underline">int</span>, 6, 19)
+</span></span></code></pre></div><p>make(type, taille, capacité)</p>
+<h3 id="créer-un-tranche-a-partir-dun-tranche">Créer un tranche a partir d&rsquo;un tranche</h3>
+<p>Vous pouvez crée un tranche a partir d&rsquo;un tranche</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{10,191,919,88}
+</span></span><span style="display:flex;"><span>y := x[1:]
+</span></span></code></pre></div><p>Mais attention, ce n&rsquo;est pas une copie, en fait, ils partagent la même mémoire.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{10,191,919,88}
+</span></span><span style="display:flex;"><span>y := x[1:]
+</span></span><span style="display:flex;"><span>y[1] = 26
+</span></span></code></pre></div><p>Ce changement sera répercuté aussi bien sur la variable y que x, ceci fonctionne aussi bien avec un tranche qu&rsquo;un tableau.</p>
+<h3 id="copy">copy</h3>
+<p>Pour avoir une copie complètement indépendants d&rsquo;une tranche ou d&rsquo;un tableau, le mot clé <code>copy</code> est ce qu&rsquo;il vous faut.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{10,191,919,88}
+</span></span><span style="display:flex;"><span>y := <span style="font-weight:bold;font-style:italic">make</span>([]<span style="font-weight:bold;text-decoration:underline">int</span>, 4)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">copy</span>(y,x)
+</span></span></code></pre></div><p>Le premier paramètre est le destinataire, le second est la source. La capacité n&rsquo;est pas importante, mais la taille compte.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := []<span style="font-weight:bold;text-decoration:underline">int</span>{10,191,919,88}
+</span></span><span style="display:flex;"><span>y := <span style="font-weight:bold;font-style:italic">make</span>([]<span style="font-weight:bold;text-decoration:underline">int</span>, 2)
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">copy</span>(y,x)
+</span></span></code></pre></div><p>Dans cet exemple, copy copiera seulement les deux premiers éléments de x dans y.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Quelle déclaration choisir ?</p>
+<p>La priorité est de limiter le nombre de fois que la tranche va grossir. S&rsquo;il est possible que la tranche n&rsquo;ait pas besoin de croître du tout (parce que votre fonction ne renvoie rien), utilisez une déclaration var sans valeur assignée pour créer une tranche nil. Si vous avez des valeurs par défaut, utilisez une tranche littérale. Si vous connaissez la taille et la capacité, utilisez make.</p>
 
     
   </div>

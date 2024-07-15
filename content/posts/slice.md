@@ -12,7 +12,7 @@ toc = true
 series = ["Go Basics"]
 +++
 
-# Array
+## Array
 
 Pour déclarer un tableau, vous devez spécifié la taille et le type : 
 ```go
