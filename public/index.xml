@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on ApprentiGO</title>
-    <link>http://localhost:1313/</link>
+    <link>http://apprendregofacilement.fr/</link>
     <description>Recent content in Home on ApprentiGO</description>
     <generator>Hugo</generator>
     <language>fr-fr</language>
     <managingEditor>your-email@example.com (Alexandre desir)</managingEditor>
     <webMaster>your-email@example.com (Alexandre desir)</webMaster>
     <lastBuildDate>Thu, 04 Jul 2024 15:45:51 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://apprendregofacilement.fr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tranche &amp; tableau quel sont les différences ? </title>
-      <link>http://localhost:1313/posts/slice/</link>
+      <link>http://apprendregofacilement.fr/posts/slice/</link>
       <pubDate>Thu, 04 Jul 2024 15:45:51 -0400</pubDate><author>your-email@example.com (Alexandre desir)</author>
-      <guid>http://localhost:1313/posts/slice/</guid>
+      <guid>http://apprendregofacilement.fr/posts/slice/</guid>
       <description>Array Pour déclarer un tableau, vous devez spécifié la taille et le type :&#xA;var a [5]int Comme nous l’avons vu dans l’article précédent, cette déclaration initialise les valeurs du tableau au type par défaut, qui est 0 pour les entiers (int). Cela signifie que dans cet exemple, la variable a contient un tableau avec 5 chiffres 0, [0,0,0,0,0].&#xA;var a = [...]int{1,2,3,4,5} Vous pouvez également utiliser cette notation, qui déterminera automatiquement le nombre d’éléments dans le tableau.</description>
     </item>
     <item>
       <title>Go variables &amp; constant</title>
-      <link>http://localhost:1313/posts/variables/</link>
+      <link>http://apprendregofacilement.fr/posts/variables/</link>
       <pubDate>Mon, 01 Jul 2024 08:58:17 -0400</pubDate><author>your-email@example.com (Alexandre desir)</author>
-      <guid>http://localhost:1313/posts/variables/</guid>
+      <guid>http://apprendregofacilement.fr/posts/variables/</guid>
       <description>Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l&amp;rsquo;une peut être préférable à une autre.&#xA;Var var dix int = 10 Le mot clé var suivit de l&amp;rsquo;identifiant dix, le type et l&amp;rsquo;assignement.&#xA;var dix = 10 Vous pouvez omettre le type si le type par défaut correspond à celui que vous souhaitez.</description>
     </item>
   </channel>
