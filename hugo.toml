@@ -1,6 +1,7 @@
 baseURL = 'http://apprendregofacilement.fr'
 languageCode = 'fr-fr'
 title = 'ApprentiGO'
+
 theme = 'typo'
 defaultContentLanguage = "fr"
 
