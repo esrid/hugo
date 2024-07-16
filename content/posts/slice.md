@@ -48,7 +48,7 @@ var a []int
 Comme avec les tableaux, vous pouvez déclarer des tableaux à dimensions multiples.
 
 ```go
-var multi [5][3]int
+var multi [][]int
 ```
 Contrairement aux tableaux, déclarer une tranche sans lui donner de valeur la rendra nil.
 
