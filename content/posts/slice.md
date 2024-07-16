@@ -18,7 +18,7 @@ Pour déclarer un tableau, vous devez spécifié la taille et le type :
 ```go
 var a [5]int
 ```
-Comme nous l’avons vu dans l’article précédent, cette déclaration initialise les valeurs du tableau au type par défaut, qui est 0 pour les entiers (int). Cela signifie que dans cet exemple, la variable `a` contient un tableau avec 5 chiffres 0, `[0,0,0,0,0]`.
+Cette déclaration initialise les valeurs du tableau au type par défaut, qui est 0 pour les entiers (int). Cela signifie que dans cet exemple, la variable `a` contient un tableau avec 5 chiffres 0, `[0,0,0,0,0]`.
 
 ```go
 var a = [...]int{1,2,3,4,5}
