@@ -12,7 +12,7 @@ toc = true
 series = ["Go Basics"]
 +++
 
-# Maps 
+### Maps 
 Pour déclarer une map vous devez utiliser le mot-clé `map` suivi du type de clé et du type de value. 
 
 ```go
