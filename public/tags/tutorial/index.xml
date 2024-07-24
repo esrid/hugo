@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 18 Jul 2024 15:45:51 -0400</lastBuildDate>
     <atom:link href="apprendregofacilement.fr/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Struct</title>
-      <link>apprendregofacilement.fr/posts/struct/</link>
+      <title>Maps</title>
+      <link>apprendregofacilement.fr/posts/maps/</link>
       <pubDate>Thu, 18 Jul 2024 15:45:51 -0400</pubDate>
-      <guid>apprendregofacilement.fr/posts/struct/</guid>
-      <description></description>
+      <guid>apprendregofacilement.fr/posts/maps/</guid>
+      <description>Maps Pour déclarer une map vous devez utiliser le mot-clé map suivi du type de clé et du type de value.&#xA;var x map[string]int Dans cet exemple ci-dessus, nous avons créé une nil map qui attend un string en clé et un int en value.&#xA;func main() { var x map[string]int fmt.Printf(&amp;#34;%T, %v&amp;#34;, x,x ) } Lorsque vous déclarez une nil map en go vous pouvez uniquement la lire , ce qui vous renvoie toujours la valeur zéro du type de valeur de la carte, mais vous ne pouvez rien ajouter, car la map n&amp;rsquo;est pas initialiser.</description>
     </item>
     <item>
       <title>Tranche &amp; tableau quel sont les différences ? </title>

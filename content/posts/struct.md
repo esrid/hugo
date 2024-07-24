@@ -1,7 +1,7 @@
 +++
 title = 'Struct'
 date = 2024-07-18T15:45:51-04:00
-draft = false
+draft = true
 description = "Comment utiliser les structs en go"
 type = "post"
 tags = ["Go", "Programming", "Tutorial"]

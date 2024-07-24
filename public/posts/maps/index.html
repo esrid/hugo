@@ -2,9 +2,9 @@
 <html lang="fr-fr"
   dir="ltr">
 
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
-<meta name="viewport" content="width=device-width"><meta name="description" content="Maps" />
+<meta name="viewport" content="width=device-width"><meta name="description" content="Comment utiliser les maps en go ?" />
 
 <title>
     
@@ -23,7 +23,12 @@
 
 
 
-<link rel="stylesheet" href="/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">
+<link rel="stylesheet" href="apprendregofacilement.fr/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">
+
+
+
+
+  
 
 
 
@@ -80,13 +85,13 @@
 
 <div class="breadcrumbs">
     
-    <a href="/">Home</a>
+    <a href="apprendregofacilement.fr/">Home</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a href="/posts/">Posts</a>
+    <a href="apprendregofacilement.fr/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="/posts/maps/">Maps</a>
+    <a class="breadcrumbs-current" href="apprendregofacilement.fr/posts/maps/">Maps</a>
 </div>
 
 
@@ -110,7 +115,7 @@
 
       
       &nbsp; · &nbsp;
-      2 min read
+      3 min read
       
     </p>
 
@@ -124,17 +129,17 @@
   <div class="single-tags">
     
     <span>
-      <a href="//localhost:1313/tags/go/">#Go</a>
+      <a href="apprendregofacilement.fr/tags/go/">#Go</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/programming/">#Programming</a>
+      <a href="apprendregofacilement.fr/tags/programming/">#Programming</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/tutorial/">#Tutorial</a>
+      <a href="apprendregofacilement.fr/tags/tutorial/">#Tutorial</a>
     </span>
     
     
@@ -152,7 +157,13 @@
   <ul>
     <li>
       <ul>
+        <li><a href="#make-avec-map">Make avec map</a></li>
         <li><a href="#quelque-similarité-avec-slice">Quelque similarité avec Slice</a></li>
+        <li><a href="#acceder-a-la-value-dune-clé">Acceder a la value d&rsquo;une clé</a></li>
+        <li><a href="#insérer-une-nouvelle-clévalue">Insérer une nouvelle clé/value</a></li>
+        <li><a href="#ok-idiom">Ok Idiom</a></li>
+        <li><a href="#supprimer-une-clé">supprimer une clé</a></li>
+        <li><a href="#créer-un-set-avec-une-maps">Créer un set avec une maps</a></li>
       </ul>
     </li>
   </ul>
@@ -164,45 +175,35 @@
 
   <div class="single-content">
     <h1 id="maps">Maps</h1>
+<p>Pour déclarer une map vous devez utiliser le mot-clé <code>map</code> suivi du type de clé et du type de value.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>
-</span></span></code></pre></div><p>Pour déclarer une map vous devez utilisé le mot clé <code>map</code> suivi du type de clé et du type de value.
-Dans cet exemple, nous avons créer une nil map qui attend un string en clé et un int en value.
-C&rsquo;est bizare mais dans cette situation vous pouvez uniquement lire la variable x ce qui vous renvoie toujours la valeur zéro du type de valeur de la carte mais vous ne pouvez rien ajouter car la map n&rsquo;est pas initialiser.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">package</span> main
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">import</span> <span style="color:#666;font-style:italic">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span></code></pre></div><p>Dans cet exemple ci-dessus, nous avons créé une nil map qui attend un string en clé et un int en value.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;%T, %v&#34;</span>, x,x ) 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lorsque vous déclarez une nil map en go vous pouvez uniquement la lire , ce qui vous renvoie toujours la valeur zéro du type de valeur de la carte, mais vous ne pouvez rien ajouter, car la map n&rsquo;est pas initialiser.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
 </span></span><span style="display:flex;"><span>	<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>
 </span></span><span style="display:flex;"><span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, <span style="font-weight:bold;font-style:italic">len</span>(x))
-</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 <span style="color:#888;font-style:italic">// invalide
+</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 <span style="color:#888;font-style:italic">// invalide ❌
 </span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, x)
-</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">//ce code ne fonctioneras pas
+</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">//ce code ne fonctioneras pas ❌
 </span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
 </span></span></code></pre></div><p>Dans l&rsquo;exemple ci dessous la variable x est initialisée</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">package</span> main
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">import</span> <span style="color:#666;font-style:italic">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
 </span></span><span style="display:flex;"><span>	<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x = <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>{} <span style="color:#888;font-style:italic">// x a été initialiser
-</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, <span style="font-weight:bold;font-style:italic">len</span>(x))
-</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 <span style="color:#888;font-style:italic">// valide
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, <span style="font-weight:bold;font-style:italic">len</span>(x)) 
+</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 <span style="color:#888;font-style:italic">// valide ✅
 </span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, x)
-</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">//ce code est valide
+</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">//ce code est valide ✅
 </span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
-</span></span></code></pre></div><p>Si vous connaisez déjà la taille de la maps vous pouuvez utiliser le mot clé <code>make</code>, elle sera initialisée( <a href="/posts/slice">vu dans ce chapitre</a> )</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">package</span> main
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">import</span> <span style="color:#666;font-style:italic">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x = <span style="font-weight:bold;font-style:italic">make</span>(<span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>, 1) <span style="color:#888;font-style:italic">// x a été initialiser
-</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, <span style="font-weight:bold;font-style:italic">len</span>(x))
-</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 <span style="color:#888;font-style:italic">// valide
-</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>	fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;x: %v\n&#34;</span>, x)
-</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">//ce code est valide
-</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
+</span></span></code></pre></div><h3 id="make-avec-map">Make avec map</h3>
+<p>Si vous connaisez déjà la taille de la maps vous pouuvez utiliser le mot clé <code>make</code>, ela map sera directment initialisée avec une taille et une capacité. pour en savoir plus sur <code>make</code> consulter ce post ( <a href="/posts/slice/#make">make</a> )</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> x = <span style="font-weight:bold;font-style:italic">make</span>(<span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>, 1) 
+</span></span><span style="display:flex;"><span>	x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2 
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="quelque-similarité-avec-slice">Quelque similarité avec Slice</h3>
 <p>Point commun :</p>
 <ul>
@@ -212,10 +213,51 @@ C&rsquo;est bizare mais dans cette situation vous pouvez uniquement lire la vari
 <li>Le passage d&rsquo;une map à la fonction len vous indique le nombre de paires clé/valeur
 dans une map.</li>
 <li>La valeur zéro d&rsquo;une map est nil.</li>
-<li>Les cartes ne sont pas comparables. Vous pouvez vérifier si elles sont égales à nil, mais vous ne pouvez pas vérifier si deux maps ont des valeurs identiques.</li>
+<li>Les Maps ne sont pas comparables. Vous pouvez vérifier si elles sont égales à nil, mais vous ne pouvez pas vérifier si deux maps ont des valeurs identiques.</li>
 <li>vous ne pouvez pas vérifier si deux maps ont des clés et des valeurs identiques en utilisant ==
 ou diffèrent en utilisant !=.</li>
 </ul>
+<h3 id="acceder-a-la-value-dune-clé">Acceder a la value d&rsquo;une clé</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span> x := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>{<span style="color:#666;font-style:italic">&#34;chat&#34;</span> : 1}
+</span></span><span style="display:flex;"><span> <span style="font-weight:bold;font-style:italic">println</span>(x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>])
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="insérer-une-nouvelle-clévalue">Insérer une nouvelle clé/value</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span> x := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>{}
+</span></span><span style="display:flex;"><span> x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="ok-idiom">Ok Idiom</h3>
+<p>si vous voulez verifier qu&rsquo;une clé existe vous pouvez utiliser le ok idiom,
+Dans l&rsquo;exemple ci-dessous : le v represente la value et le ok est boolean si la variable existes ok deviens true sinon false</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span> x := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>{}
+</span></span><span style="display:flex;"><span> x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2
+</span></span><span style="display:flex;"><span> v, ok := x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] 
+</span></span><span style="display:flex;"><span> <span style="font-weight:bold;font-style:italic">println</span>(v, ok)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="supprimer-une-clé">supprimer une clé</h3>
+<p>Le mot-clé <code>delete</code> permet de supprimer une clé de la map en 1er argument elle prends la maps et en second argument la clé a supprimer</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span> <span style="color:#888;font-style:italic">// initialise
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span> x := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">string</span>]<span style="font-weight:bold;text-decoration:underline">int</span>{}
+</span></span><span style="display:flex;"><span> <span style="color:#888;font-style:italic">// insert
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span> x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] = 2
+</span></span><span style="display:flex;"><span> <span style="color:#888;font-style:italic">// vef-rifier si une clé exist
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span> v, ok := x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>] 
+</span></span><span style="display:flex;"><span> <span style="font-weight:bold;font-style:italic">println</span>(v, ok )
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// supprimer une clé
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span> <span style="font-weight:bold;font-style:italic">delete</span>(x, <span style="color:#666;font-style:italic">&#34;chat&#34;</span>)
+</span></span><span style="display:flex;"><span> <span style="font-weight:bold;font-style:italic">println</span>( x[<span style="color:#666;font-style:italic">&#34;chat&#34;</span>])
+</span></span></code></pre></div><h3 id="créer-un-set-avec-une-maps">Créer un set avec une maps</h3>
+<p>Un set est une structure de donnée dans lequel il n&rsquo;y a pas de répétion, comme go n&rsquo;a pas de built-in <code>set</code> vous pouvez émuler un set comme ceci</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := <span style="font-weight:bold;font-style:italic;text-decoration:underline">map</span>[<span style="font-weight:bold;text-decoration:underline">int</span>]<span style="font-weight:bold;text-decoration:underline">bool</span>{}
+</span></span><span style="display:flex;"><span>y :=[...]<span style="font-weight:bold;text-decoration:underline">int</span>{1,1,2,2,3,3,5,6,7,8,8,9}
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">for</span> _, v := <span style="font-weight:bold;text-decoration:underline">range</span> y {
+</span></span><span style="display:flex;"><span>        x[v] = <span style="font-weight:bold;text-decoration:underline">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic">println</span>(x)
+</span></span></code></pre></div><p>La variable x aura q&rsquo;un exemplaire de chaque element de la variable x.</p>
 
     
   </div>
@@ -235,7 +277,7 @@ ou diffèrent en utilisant !=.</li>
             <div class="single-pagination-container-prev">
                 <div class="single-pagination-text">←</div>
                 <div class="single-pagination-text">
-                    <a href="/posts/slice/">
+                    <a href="apprendregofacilement.fr/posts/slice/">
                         Tranche &amp; tableau quel sont les différences ? 
                     </a>
                 </div>
