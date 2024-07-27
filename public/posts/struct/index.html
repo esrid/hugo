@@ -2,7 +2,7 @@
 <html lang="fr-fr"
   dir="ltr">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width"><meta name="description" content="Comment utiliser les structs en go" />
 
@@ -23,12 +23,7 @@
 
 
 
-<link rel="stylesheet" href="apprendregofacilement.fr/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">
-
-
-
-
-  
+<link rel="stylesheet" href="/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">
 
 
 
@@ -85,13 +80,13 @@
 
 <div class="breadcrumbs">
     
-    <a href="apprendregofacilement.fr/">Home</a>
+    <a href="/">Home</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a href="apprendregofacilement.fr/posts/">Posts</a>
+    <a href="/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="apprendregofacilement.fr/posts/struct/">Struct</a>
+    <a class="breadcrumbs-current" href="/posts/struct/">Struct</a>
 </div>
 
 
@@ -110,12 +105,12 @@
       
       
       
-      <time datetime="2024-07-18T15:45:51-04:00">18 juillet 2024</time>
+      <time datetime="2024-07-25T15:45:51-04:00">25 juillet 2024</time>
       
 
       
       &nbsp; · &nbsp;
-      0 min read
+      3 min read
       
     </p>
 
@@ -129,17 +124,17 @@
   <div class="single-tags">
     
     <span>
-      <a href="apprendregofacilement.fr/tags/go/">#Go</a>
+      <a href="//localhost:1313/tags/go/">#Go</a>
     </span>
     
     
     <span>
-      <a href="apprendregofacilement.fr/tags/programming/">#Programming</a>
+      <a href="//localhost:1313/tags/programming/">#Programming</a>
     </span>
     
     
     <span>
-      <a href="apprendregofacilement.fr/tags/tutorial/">#Tutorial</a>
+      <a href="//localhost:1313/tags/tutorial/">#Tutorial</a>
     </span>
     
     
@@ -153,14 +148,103 @@
   
   <aside class="toc">
     <p><strong>Table of contents</strong></p>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#struct">Struct</a>
+      <ul>
+        <li><a href="#acceder-a-un-champ">Acceder a un champ</a></li>
+        <li><a href="#anonymous-struct">Anonymous struct</a></li>
+        <li><a href="#comparer-les-structs">Comparer les structs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
   
 
   
 
   <div class="single-content">
-    
+    <h2 id="struct">Struct</h2>
+<p>Pour déclarer un <code>struct</code> vous devez utiliser le mot-clé <code>type</code> suivi d&rsquo;un <code>identifiant</code> ensuite du mot-clé <code>struct</code>  et pour finir ouvrer et fermé les accolades <code>{}</code> .</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Nature <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {}
+</span></span></code></pre></div><p>Dans cet exemple ci-dessus, nous avons déclaré un struct Nature sans aucun champ.</p>
+<p>Pour déclarer un champ vous devez spécifier le nom du champ et son type.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Nature <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>    animalsEspece []<span style="font-weight:bold;text-decoration:underline">string</span> 
+</span></span><span style="display:flex;"><span>    plantsEspece []<span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Un struct est un type à part entière donc vous pouvez déclarer des variables de ce type.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Nature <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>    animalsEspece []<span style="font-weight:bold;text-decoration:underline">string</span> 
+</span></span><span style="display:flex;"><span>    plantsEspece []<span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> n Nature
+</span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic">// ou
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>x := Nature{}
+</span></span></code></pre></div><p>Les champs sont initialisés avec la valeur 0 selon leur type, sauf si lors de la déclaration, vous initialisé les champs.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> n = Nature{
+</span></span><span style="display:flex;"><span>        animalsEspece: []<span style="font-weight:bold;text-decoration:underline">string</span>{<span style="color:#666;font-style:italic">&#34;Felis catus&#34;</span>, <span style="color:#666;font-style:italic">&#34;Canis lupus&#34;</span>},
+</span></span><span style="display:flex;"><span>        plantsEspece:  []<span style="font-weight:bold;text-decoration:underline">string</span>{<span style="color:#666;font-style:italic">&#34;Helianthus annuus&#34;</span>, <span style="color:#666;font-style:italic">&#34;Aloe vera&#34;</span>},
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    x := Nature{
+</span></span><span style="display:flex;"><span>        []<span style="font-weight:bold;text-decoration:underline">string</span>{<span style="color:#666;font-style:italic">&#34;Felis catus&#34;</span>, <span style="color:#666;font-style:italic">&#34;Canis lupus&#34;</span>},
+</span></span><span style="display:flex;"><span>        []<span style="font-weight:bold;text-decoration:underline">string</span>{<span style="color:#666;font-style:italic">&#34;Helianthus annuus&#34;</span>, <span style="color:#666;font-style:italic">&#34;Aloe vera&#34;</span>},
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p><strong>Note</strong> : Faites attention à la seconde variable x dans l&rsquo;exemple ci-dessus. Elle est un peu différente de n car nous ne précisons pas à quels champs les valeurs sont assignées. Dans cette méthode, les valeurs sont assignées dans l&rsquo;ordre dans lequel les champs sont déclarés dans la structure Nature.
+En precisant donc les champs vous pouvez l&rsquo;utiliser dans l&rsquo;ordre que vous souhaité et même en omettre certain. c&rsquo;est soi l&rsquo;un ou l&rsquo;autre vous ne pouvez utiliser les deux.</p>
+<h3 id="acceder-a-un-champ">Acceder a un champ</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">var</span> n Nature
+</span></span><span style="display:flex;"><span>n.animalsEspece = []<span style="font-weight:bold;text-decoration:underline">string</span>{ []<span style="font-weight:bold;text-decoration:underline">string</span>{<span style="color:#666;font-style:italic">&#34;Felis catus&#34;</span>, <span style="color:#666;font-style:italic">&#34;Canis lupus&#34;</span>}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(n.animalsEspece)
+</span></span></code></pre></div><p>utiliser un <code>.</code> pour acceder à un champ. pour le lire ou lui réasigner une nouvelle value:</p>
+<h3 id="anonymous-struct">Anonymous struct</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>personne := <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span>{
+</span></span><span style="display:flex;"><span>        nom <span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>    }{
+</span></span><span style="display:flex;"><span>        nom : <span style="color:#666;font-style:italic">&#34;Julius novachrono&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="comparer-les-structs">Comparer les structs</h3>
+<p>Contrairement à un slice ou a une map les (instances de) struct sont comparables, mais uniquement si la struct ne contient pas des types incomparables comme les slices ou les maps.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Humain <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>	nom <span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	 p := Humain{}
+</span></span><span style="display:flex;"><span>	 po := Humain{}
+</span></span><span style="display:flex;"><span>	 fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>( p == po)
+</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">// true 
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Humain <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>	nom <span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>	diplome []<span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	 p := Humain{}
+</span></span><span style="display:flex;"><span>	 po := Humain{}
+</span></span><span style="display:flex;"><span>	 fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>( p == po)
+</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">// ne fonctionneras pas
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
+</span></span></code></pre></div><p>Si vous comparez une instance de struct a une autre instance de struct, ça ne fonctionneras pas non plus, car ce sont deux types différents type.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> Humain <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>	nom <span style="font-weight:bold;text-decoration:underline">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">type</span> NonHumain <span style="font-weight:bold;font-style:italic;text-decoration:underline">struct</span> {
+</span></span><span style="display:flex;"><span>    nom <span style="font-weight:bold;text-decoration:underline">string</span> 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	 p := Humain{}
+</span></span><span style="display:flex;"><span>	 po := NonHumain{}
+</span></span><span style="display:flex;"><span>	 fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>( p == po)
+</span></span><span style="display:flex;"><span>	<span style="color:#888;font-style:italic">// ne fonctionneras pas
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>}
+</span></span></code></pre></div><p>Mais vous pouvez les convertir :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := <span style="color:#666;font-weight:bold;font-style:italic">Humain</span>(po)
+</span></span></code></pre></div><p>La conversion ne fonctionnera pas si les champs sont différents, avec un champ en plus ou en moins ou si l&rsquo;ordre diffèrent.</p>
+
     
   </div>
 
@@ -179,8 +263,8 @@
             <div class="single-pagination-container-prev">
                 <div class="single-pagination-text">←</div>
                 <div class="single-pagination-text">
-                    <a href="apprendregofacilement.fr/posts/slice/">
-                        Tranche &amp; tableau quel sont les différences ? 
+                    <a href="/posts/maps/">
+                        Maps
                     </a>
                 </div>
             </div>
