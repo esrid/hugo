@@ -6,8 +6,15 @@
     <description>Recent content in Tutorial on ApprentiGO</description>
     <generator>Hugo</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Thu, 18 Jul 2024 15:45:51 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jul 2024 15:45:51 -0400</lastBuildDate>
     <atom:link href="apprendregofacilement.fr/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Struct</title>
+      <link>apprendregofacilement.fr/posts/struct/</link>
+      <pubDate>Thu, 25 Jul 2024 15:45:51 -0400</pubDate>
+      <guid>apprendregofacilement.fr/posts/struct/</guid>
+      <description>Struct Pour déclarer un struct vous devez utiliser le mot-clé type suivi d&amp;rsquo;un identifiant ensuite du mot-clé struct et pour finir ouvrer et fermé les accolades {} .&#xA;type Nature struct {} Dans cet exemple ci-dessus, nous avons déclaré un struct Nature sans aucun champ.&#xA;Pour déclarer un champ vous devez spécifier le nom du champ et son type.&#xA;type Nature struct { animalsEspece []string plantsEspece []string } Un struct est un type à part entière donc vous pouvez déclarer des variables de ce type.</description>
+    </item>
     <item>
       <title>Maps</title>
       <link>apprendregofacilement.fr/posts/maps/</link>
