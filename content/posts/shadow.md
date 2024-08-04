@@ -12,7 +12,7 @@ toc = true
 series = ["Go Basics"]
 +++
 ## Block
-Comme vous le savez vous pouvez déclarer des variables de part e d'autres.
+Comme vous le savez vous pouvez déclarer des variables de part et d'autre.
 
 Chaque endroit ou vous pouvez déclarer une variable s'appelle en fait un block. 
 
