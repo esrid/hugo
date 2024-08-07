@@ -6,8 +6,15 @@
     <description>Recent content in Go on ApprentiGO</description>
     <generator>Hugo</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 04 Aug 2024 14:45:20 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 14:57:51 -0400</lastBuildDate>
     <atom:link href="apprendregofacilement.fr/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>if</title>
+      <link>apprendregofacilement.fr/posts/if/</link>
+      <pubDate>Sun, 04 Aug 2024 14:57:51 -0400</pubDate>
+      <guid>apprendregofacilement.fr/posts/if/</guid>
+      <description>if Si vous avez déjà fait un peu de programmation, vous connaissez le mot-clé if. Mais si jamais go et votre 1er langage et cet article est l&amp;rsquo;un des 1er que vous lisez, le mot-clé if qui signifie si et son but est de contrôler le flux de votre logique.&#xA;func main() { if 18 &amp;gt; 16 { println(&amp;#34;18 est plus grand que 16&amp;#34;) return } } Dans cet exemple ci-dessus le mot, je dis si 18 est plus grand que 16 affiche que 18 est plus grand que 16 puis j&amp;rsquo;arrête le programme.</description>
+    </item>
     <item>
       <title>Shadow</title>
       <link>apprendregofacilement.fr/posts/shadow/</link>
