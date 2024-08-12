@@ -8,10 +8,12 @@ description = "Dans le langage Go, il existe plusieurs méthodes pour déclarer 
 Dans le langage Go, il existe plusieurs méthodes pour déclarer des variables, chacune ayant ses spécificités. Dans cet article, nous allons explorer ces différentes méthodes et déterminer dans quels contextes l'une peut être préférable à une autre.
 
 ## Var
-
+{{< highlight typo>}}
 ```go
 var dix int = 10
 ```
+{{< /highlight >}}
+
 Le mot clé var suivit de l'identifiant `dix`, le type et l'assignement.
 
 ```go
