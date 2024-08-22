@@ -3,7 +3,7 @@
   lang="fr-fr"
   dir="ltr"
 >
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="" />
@@ -23,7 +23,10 @@
 
 
 
-<link rel="stylesheet" href="/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">  
+<link rel="stylesheet" href="apprendregofacilement.fr/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">   
+  
+
+ 
 </head>
 
   </head>
@@ -71,13 +74,13 @@
 
 <div class="breadcrumbs">
     
-    <a href="/">Home</a>
+    <a href="apprendregofacilement.fr/">Home</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a href="/posts/">Posts</a>
+    <a href="apprendregofacilement.fr/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="/posts/swicth/">Swicth</a>
+    <a class="breadcrumbs-current" href="apprendregofacilement.fr/posts/swicth/">Swicth</a>
 </div>
 
 
@@ -101,7 +104,7 @@
 
       
       &nbsp; · &nbsp;
-      0 min read
+      1 min read
       
     </p>
 
@@ -115,17 +118,17 @@
   <div class="single-tags">
     
     <span>
-      <a href="//localhost:1313/tags/go/">#Go</a>
+      <a href="apprendregofacilement.fr/tags/go/">#Go</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/programming/">#Programming</a>
+      <a href="apprendregofacilement.fr/tags/programming/">#Programming</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/tutorial/">#Tutorial</a>
+      <a href="apprendregofacilement.fr/tags/tutorial/">#Tutorial</a>
     </span>
     
     
@@ -139,14 +142,60 @@
   
   <aside class="toc">
     <p><strong>Table of contents</strong></p>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#swicth">Swicth</a></li>
+  </ul>
+</nav>
   </aside>
   
 
   
 
   <div class="single-content">
-    
+    <h2 id="swicth">Swicth</h2>
+<p>Le fonctionnement de switch est similaire à celui des autres langages de programmation : il compare différentes conditions et s&rsquo;arrête dès qu&rsquo;une condition est remplie.</p>
+<p>syntax :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>x := <span style="color:#666;font-style:italic">&#34;chat&#34;</span>
+</span></span><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">switch</span> x {
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;renard&#34;</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;super&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;monster&#34;</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;pas super&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">default</span> :
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(x)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Vous avez la possibilité de comparer une valeur avec plusieurs cas.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>    jour := <span style="color:#666;font-style:italic">&#34;Mercredi&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">switch</span> jour {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;Lundi&#34;</span>, <span style="color:#666;font-style:italic">&#34;Mardi&#34;</span>, <span style="color:#666;font-style:italic">&#34;Mercredi&#34;</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;C&#39;est la première moitié de la semaine.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;Jeudi&#34;</span>, <span style="color:#666;font-style:italic">&#34;Vendredi&#34;</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;Le week-end approche.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> <span style="color:#666;font-style:italic">&#34;Samedi&#34;</span>, <span style="color:#666;font-style:italic">&#34;Dimanche&#34;</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;C&#39;est le week-end !&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">default</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;Ce n&#39;est pas un jour valide.&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Comme avec if déclarer une variable utilisable dans ce bloc.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>    valeur := 15
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">switch</span> resultat := valeur * 2; {
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> resultat &lt; 10:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;Le résultat est inférieur à 10.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> resultat &gt;= 10 &amp;&amp; resultat &lt; 30:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;Le résultat est %d, ce qui est entre 10 et 30.\n&#34;</span>, resultat)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">case</span> resultat &gt;= 30:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;Le résultat est %d, ce qui est supérieur ou égal à 30.\n&#34;</span>, resultat)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">default</span>:
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;Cas inattendu.&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     
   </div>
 
@@ -165,7 +214,7 @@
             <div class="single-pagination-container-prev">
                 <div class="single-pagination-text">←</div>
                 <div class="single-pagination-text">
-                    <a href="/posts/if/">
+                    <a href="apprendregofacilement.fr/posts/if/">
                         if
                     </a>
                 </div>
@@ -177,7 +226,7 @@
             
             <div class="single-pagination-container-next">
                 <div class="single-pagination-text">
-                    <a href="/posts/for/">
+                    <a href="apprendregofacilement.fr/posts/for/">
                         For
                     </a>
                 </div>

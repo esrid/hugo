@@ -3,7 +3,7 @@
   lang="fr-fr"
   dir="ltr"
 >
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="" />
@@ -23,7 +23,10 @@
 
 
 
-<link rel="stylesheet" href="/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">  
+<link rel="stylesheet" href="apprendregofacilement.fr/assets/combined.min.8f3e0e55e47967142070970097f041ec38ba4abc34d660c4852da5ba7561a455.css" media="all">   
+  
+
+ 
 </head>
 
   </head>
@@ -71,13 +74,13 @@
 
 <div class="breadcrumbs">
     
-    <a href="/">Home</a>
+    <a href="apprendregofacilement.fr/">Home</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a href="/posts/">Posts</a>
+    <a href="apprendregofacilement.fr/posts/">Posts</a>
     <span class="breadcrumbs-separator"> > </span>
     
-    <a class="breadcrumbs-current" href="/posts/for/">For</a>
+    <a class="breadcrumbs-current" href="apprendregofacilement.fr/posts/for/">For</a>
 </div>
 
 
@@ -101,7 +104,7 @@
 
       
       &nbsp; · &nbsp;
-      2 min read
+      3 min read
       
     </p>
 
@@ -115,17 +118,17 @@
   <div class="single-tags">
     
     <span>
-      <a href="//localhost:1313/tags/go/">#Go</a>
+      <a href="apprendregofacilement.fr/tags/go/">#Go</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/programming/">#Programming</a>
+      <a href="apprendregofacilement.fr/tags/programming/">#Programming</a>
     </span>
     
     
     <span>
-      <a href="//localhost:1313/tags/tutorial/">#Tutorial</a>
+      <a href="apprendregofacilement.fr/tags/tutorial/">#Tutorial</a>
     </span>
     
     
@@ -145,6 +148,7 @@
     <li><a href="#2-le-classique">2) Le classique</a></li>
     <li><a href="#3-for-conditon">3) for conditon</a></li>
     <li><a href="#4-for-range">4) for range</a></li>
+    <li><a href="#continue">continue</a></li>
     <li><a href="#infos">Infos</a></li>
   </ul>
 </nav>
@@ -157,7 +161,7 @@
     <h1 id="for">For</h1>
 <p><code>for</code> est l&rsquo;unique mot-clé servant à faire des boucles dans le language go mais il être utilisée de 4 façons.</p>
 <h2 id="1-for">1) for</h2>
-<p><code>for</code> le mot clé seul sert à crée une boucle infini</p>
+<p><code>for</code> (seul) sert à crée une boucle infini</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">for</span> {
 </span></span><span style="display:flex;"><span>        fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(<span style="color:#666;font-style:italic">&#34;Salut&#34;</span>)
 </span></span><span style="display:flex;"><span>    }
@@ -196,7 +200,42 @@ la condition dans la deuxieme partie de la boucle doit être vrai.</p>
 </span></span><span style="display:flex;"><span>		fmt.<span style="color:#666;font-weight:bold;font-style:italic">Printf</span>(<span style="color:#666;font-style:italic">&#34;que les valeurs: %v\n&#34;</span>, v)
 </span></span><span style="display:flex;"><span>	}
 </span></span></code></pre></div><p>vous pouvez ignorer un des deux avec un petit _.</p>
-<h2 id="infos">Infos</h2>
+<h2 id="continue">continue</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	grid := [][]<span style="font-weight:bold;text-decoration:underline">string</span>{
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;apple&#34;</span>, <span style="color:#666;font-style:italic">&#34;banana&#34;</span>, <span style="color:#666;font-style:italic">&#34;cherry&#34;</span>},
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;date&#34;</span>, <span style="color:#666;font-style:italic">&#34;elderberry&#34;</span>, <span style="color:#666;font-style:italic">&#34;fig&#34;</span>},
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;grape&#34;</span>, <span style="color:#666;font-style:italic">&#34;honeydew&#34;</span>, <span style="color:#666;font-style:italic">&#34;kiwi&#34;</span>},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold;text-decoration:underline">for</span> _, row := <span style="font-weight:bold;text-decoration:underline">range</span> grid {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold;text-decoration:underline">for</span> _, fruit := <span style="font-weight:bold;text-decoration:underline">range</span> row {
+</span></span><span style="display:flex;"><span>			<span style="color:#888;font-style:italic">// Si le fruit actuel contient la lettre &#39;e&#39;, on ignore le reste de cette itération
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>			<span style="font-weight:bold;text-decoration:underline">if</span> strings.<span style="color:#666;font-weight:bold;font-style:italic">Contains</span>(fruit, <span style="color:#666;font-style:italic">&#34;e&#34;</span>) {
+</span></span><span style="display:flex;"><span>				<span style="font-weight:bold;text-decoration:underline">continue</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(fruit)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Le mot-clé continue sert à ignorer le reste du corps de la boucle en cours et à passer directement à l&rsquo;itération suivante. Cependant, vous pouvez contrôler quelle boucle doit passer à l&rsquo;itération suivante en nommant vos boucles, comme illustré ci-dessous :</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic;text-decoration:underline">func</span> <span style="color:#666;font-weight:bold;font-style:italic">main</span>() {
+</span></span><span style="display:flex;"><span>	grid := [][]<span style="font-weight:bold;text-decoration:underline">string</span>{
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;apple&#34;</span>, <span style="color:#666;font-style:italic">&#34;banana&#34;</span>, <span style="color:#666;font-style:italic">&#34;cherry&#34;</span>},
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;date&#34;</span>, <span style="color:#666;font-style:italic">&#34;elderberry&#34;</span>, <span style="color:#666;font-style:italic">&#34;fig&#34;</span>},
+</span></span><span style="display:flex;"><span>		{<span style="color:#666;font-style:italic">&#34;grape&#34;</span>, <span style="color:#666;font-style:italic">&#34;honeydew&#34;</span>, <span style="color:#666;font-style:italic">&#34;kiwi&#34;</span>},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>outer:
+</span></span><span style="display:flex;"><span>	<span style="font-weight:bold;text-decoration:underline">for</span> _, row := <span style="font-weight:bold;text-decoration:underline">range</span> grid {
+</span></span><span style="display:flex;"><span>		<span style="font-weight:bold;text-decoration:underline">for</span> _, fruit := <span style="font-weight:bold;text-decoration:underline">range</span> row {
+</span></span><span style="display:flex;"><span>			<span style="font-weight:bold;text-decoration:underline">if</span> fruit == <span style="color:#666;font-style:italic">&#34;date&#34;</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#888;font-style:italic">// Passe à l&#39;itération suivante de la boucle extérieure
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-style:italic"></span>				<span style="font-weight:bold;text-decoration:underline">continue</span> outer
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			fmt.<span style="color:#666;font-weight:bold;font-style:italic">Println</span>(fruit)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="infos">Infos</h2>
 <p>En Go, l&rsquo;ordre des clés et des valeurs dans une map varie à chaque exécution pour des raisons de sécurité. Avant, l&rsquo;ordre d&rsquo;itération des clés était souvent le même, ce qui causait des erreurs imprévisibles et rendait possible une attaque Hash DoS. Pour éviter cela, Go utilise maintenant un algorithme de hachage avec un nombre aléatoire et fait varier l&rsquo;ordre d&rsquo;itération à chaque boucle.</p>
 
     
@@ -217,7 +256,7 @@ la condition dans la deuxieme partie de la boucle doit être vrai.</p>
             <div class="single-pagination-container-prev">
                 <div class="single-pagination-text">←</div>
                 <div class="single-pagination-text">
-                    <a href="/posts/swicth/">
+                    <a href="apprendregofacilement.fr/posts/swicth/">
                         Swicth
                     </a>
                 </div>

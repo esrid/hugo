@@ -6,8 +6,22 @@
     <description>Recent content in Home on ApprentiGO</description>
     <generator>Hugo</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 04 Aug 2024 14:57:51 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 17:37:30 -0400</lastBuildDate>
     <atom:link href="apprendregofacilement.fr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>For</title>
+      <link>apprendregofacilement.fr/posts/for/</link>
+      <pubDate>Thu, 08 Aug 2024 17:37:30 -0400</pubDate>
+      <guid>apprendregofacilement.fr/posts/for/</guid>
+      <description>For for est l&amp;rsquo;unique mot-clé servant à faire des boucles dans le language go mais il être utilisée de 4 façons.&#xA;1) for for (seul) sert à crée une boucle infini&#xA;for { fmt.Println(&amp;#34;Salut&amp;#34;) } vous pouvez arrêter la boucle infini en utilisant le mot clé break&#xA;for { fmt.Println(&amp;#34;Salut&amp;#34;) break } 2) Le classique Comme en javascript cet boucle tourneras jusqu&amp;rsquo;à ce que la value de i sois 9. la condition dans la deuxieme partie de la boucle doit être vrai.</description>
+    </item>
+    <item>
+      <title>Swicth</title>
+      <link>apprendregofacilement.fr/posts/swicth/</link>
+      <pubDate>Thu, 08 Aug 2024 17:36:03 -0400</pubDate>
+      <guid>apprendregofacilement.fr/posts/swicth/</guid>
+      <description>Swicth Le fonctionnement de switch est similaire à celui des autres langages de programmation : il compare différentes conditions et s&amp;rsquo;arrête dès qu&amp;rsquo;une condition est remplie.&#xA;syntax :&#xA;x := &amp;#34;chat&amp;#34; switch x { case &amp;#34;renard&amp;#34;: fmt.Println(&amp;#34;super&amp;#34;) case &amp;#34;monster&amp;#34;: fmt.Println(&amp;#34;pas super&amp;#34;) default : fmt.Println(x) } Vous avez la possibilité de comparer une valeur avec plusieurs cas.&#xA;func main() { jour := &amp;#34;Mercredi&amp;#34; switch jour { case &amp;#34;Lundi&amp;#34;, &amp;#34;Mardi&amp;#34;, &amp;#34;Mercredi&amp;#34;: fmt.Println(&amp;#34;C&amp;#39;est la première moitié de la semaine.</description>
+    </item>
     <item>
       <title>if</title>
       <link>apprendregofacilement.fr/posts/if/</link>
