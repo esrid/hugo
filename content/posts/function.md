@@ -1,7 +1,7 @@
 +++
 title = 'Function'
 date = 2024-08-12T19:41:17-04:00
-draft = true
+draft = false
 type = "post"
 tags = ["Go", "Programming", "Tutorial"]
 showTags = true
